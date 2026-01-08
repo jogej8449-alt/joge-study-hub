@@ -13,10 +13,6 @@ A **complete Flask-based study management dashboard** for students to organize s
 - ✅ **File Management**: Upload, Download, Delete
 - ✅ **Live Preview**: Smooth animations + Home button flow
 
-## 🚀 **Live Demo**
-https://your-app.onrender.com
-Login: joge / joge
-
 ## 🛠️ **Tech Stack**
 Frontend: HTML5, CSS3, Vanilla JavaScript
 Backend: Flask 3.0+, SQLite, SQLAlchemy
