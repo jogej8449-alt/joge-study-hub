@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #00b09b, #96c93d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Login box */
+.login-box {
+    background: white;
+    padding: 30px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Dashboard */
+.dashboard {
+    display: none; /* Hidden initially */
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Dashboard buttons */
+.dashboard-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.dashboard-buttons button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2ecc71;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dashboard-buttons button:hover {
+    background-color: #27ae60;
+}
+
+.login-box h2 {
+    text-align: center;
+    color: #2ecc71;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #27ae60;
+}
+/* Snackbar */
+.snackbar {
+    visibility: hidden; /* Hidden by default */
+    min-width: 250px;
+    background-color: #2ecc71; /* green success */
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Show the snackbar */
+.snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s; /* 3s total */
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}

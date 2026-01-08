@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <!-- YOUR EXACT HTML STRUCTURE - NO CHANGES NEEDED -->
+    <!-- Left Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>📚 Study Hub</h3>
+        </div>
+        <ul class="menu-list">
+            <li class="menu-item active" data-section="study">
+                <span class="menu-icon">📖</span>
+                Study Materials
+            </li>
+            <li class="menu-item" data-section="labs">
+                <span class="menu-icon">🧪</span>
+                Lab Files
+            </li>
+            <li class="menu-item" data-section="syllabus">
+                <span class="menu-icon">📋</span>
+                Syllabus
+            </li>
+            <li class="menu-item" data-section="tests">
+                <span class="menu-icon">📝</span>
+                Class Tests
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="navbar-left">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <img id="avatarHeader" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjUiIGZpbGw9IiM0RDhBRkYiLz4KPHBhdGggZD0iTTIwIDE2QzIwIDEzLjQyODQgMjIuNDI4NCAxMSAyNSAxMVgxMjVDMTI1IDExIDEyNSAxMSAxMjUgMTFDMTI1IDExIDEyNSAxMSAxMjUgMTFDMjcuNTcxNiAxMSAyOSA5LjQyODQgMjkgMTZDMjkgMTIuNTcxNiAyNy41NzE2IDE0IDI1IDE0QzIyLjQyODQgMTQgMjAgMTIuNTcxNiAyMCAxNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyMUMxMCAxOC40Mjg0IDEyLjQyODQgMTYgMTUgMTZIMzVDMzUgMTYgMzUgMTYgMzUgMTZDMzcuNTcxNiAxNiAzOSAxOC40Mjg0IDM5IDIxVjM0QzM5IDM1LjU1MjggMzYuNTUyOCAzNyAzNCAzN0gxNkMzMy40NDcyIDM3IDMxIDM1LjU1MjggMzEgMzRDMzEgMzMuNDQ3MiAzMy40NDcyIDMyIDM0IDMySDIxQzIxLjU1MjggMzIgMjMgMzIuNDQ3MiAyMyAzM0MyMyAzMy41NTI4IDIxLjU1MjggMzQgMjEgMzRIMTBDOC40NDcyIDM0IDcgMzIuNTUyOCA3IDMxVjIxWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" alt="User Avatar">
+            </div>
+            <div class="navbar-right">
+                <button id="homeBtn">🏠 Home</button>
+                <label for="fileUpload" class="upload-label">📎 Upload</label>
+                <input type="file" id="fileUpload" accept="image/*,application/pdf,.doc,.docx,.txt,.zip" style="display: none;">
+                <button id="logoutBtn">🚪 Logout</button>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-container">
+            <div class="image-wrapper">
+                <img id="profileCenter" src="" alt="Profile">
+                <label for="imageUpload" class="camera-overlay" title="Set Profile Image">📷</label>
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+            </div>
+            <div id="welcomeText">Welcome to Jogeswar Dashboard!</div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="content-sections">
+            <div class="files-section study-section active" id="studySection">
+                <h3>📖 Study Materials (<span id="studyCount">0</span>)</h3>
+                <div class="sub-section">
+                    <div id="subjectsList" class="files-grid"></div>
+                </div>
+            </div>
+
+            <div class="files-section labs-section" id="labsSection">
+                <h3>🧪 Lab Files (<span id="labsCount">0</span>)</h3>
+                <div class="upload-section">
+                    <label for="labUpload" class="upload-btn">➕ Upload Lab File</label>
+                    <input type="file" id="labUpload" accept="image/*,application/pdf,.zip,.doc,.docx" style="display: none;">
+                </div>
+                <div class="sub-section">
+                    <div id="labsList" class="files-grid"></div>
+                </div>
+            </div>
+
+            <div class="files-section syllabus-section" id="syllabusSection">
+                <h3>📋 Syllabus (<span id="syllabusCount">0</span>)</h3>
+                <div class="sub-section">
+                    <div id="syllabusList" class="files-grid"></div>
+                </div>
+            </div>
+
+            <div class="files-section tests-section" id="testsSection">
+                <h3>📝 Class Tests (<span id="testsCount">0</span>)</h3>
+                <div class="sub-section">
+                    <div id="testsList" class="files-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="filePreview"></div>
+        <div id="snackbar"></div>
+        <footer class="footer">
+            <span>© 2026 Developed by Jogeswar - Flask + SQLite</span>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
